@@ -1,13 +1,14 @@
 BIN_DIR = ./bin
 SRC_DIR = ./src
 TARGET = $(BIN_DIR)/main.out
+SOURCES = $(SRC_DIR)/**/*.v $(SRC_DIR)/*.v
 
 run: build
 	$(TARGET)
 
 build: $(TARGET)
 
-$(TARGET): $(SRC_DIR)/main.v
+$(TARGET): $(SOURCES)
 	iverilog -o $@ $^
 
 clean:
